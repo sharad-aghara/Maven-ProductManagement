@@ -14,7 +14,7 @@ public class ProductDB {
     public ProductDB() {
 
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/productManagement", "root", "1234");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:PORT/database", "username", "password");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -23,7 +23,7 @@ public class ProductDB {
 
     public void save(Product product) {
 
-        String query = "INSERT INTO products (name, type, location, warranty) VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO tablename (name, type, location, warranty) VALUES (?, ?, ?, ?)";
 
         try {
             PreparedStatement statement = conn.prepareStatement(query);
